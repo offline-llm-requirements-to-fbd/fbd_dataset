@@ -1,0 +1,139 @@
+<FunctionBlockDiagram>
+    <Block>
+        <id>block1</id>
+        <type>function</type>
+        <label>Temperature Monitoring for Cooling</label>
+        <description>Activates the cooling system when the temperature exceeds 75°C.</description>
+        <gate_type>Threshold</gate_type>
+        <condition>greater</condition>
+        <threshold>75°C</threshold>
+        <inputs>
+            <Input>
+                <name>Temperature Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Temperature readings from the sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Cooling System Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates the cooling system when temperature exceeds the threshold.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block2</id>
+        <type>function</type>
+        <label>Humidity Monitoring for Dehumidifier</label>
+        <description>Activates the dehumidifier when humidity exceeds 70%.</description>
+        <gate_type>Threshold</gate_type>
+        <condition>greater</condition>
+        <threshold>70%</threshold>
+        <inputs>
+            <Input>
+                <name>Humidity Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Humidity readings from the sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Dehumidifier Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates the dehumidifier when humidity exceeds the threshold.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block3</id>
+        <type>function</type>
+        <label>Critical Condition Alert</label>
+        <description>Activates the alert system when both temperature and humidity exceed thresholds.</description>
+        <gate_type>AND</gate_type>
+        <inputs>
+            <Input>
+                <name>Temperature Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Temperature readings from the sensor.</description>
+            </Input>
+            <Input>
+                <name>Humidity Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Humidity readings from the sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Alert System Activation</name>
+                <type>signal</type>
+                <output_type>alert</output_type>
+                <description>Triggers the alert system for critical conditions.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block4</id>
+        <type>function</type>
+        <label>Fan Status Monitoring for Maintenance</label>
+        <description>Triggers maintenance alert if the cooling system is active but the fan is not operational.</description>
+        <gate_type>NOT</gate_type>
+        <inputs>
+            <Input>
+                <name>Cooling System Status</name>
+                <type>signal</type>
+                <input_type>system_status</input_type>
+                <description>Status of the cooling system.</description>
+            </Input>
+            <Input>
+                <name>Fan Status Data</name>
+                <type>signal</type>
+                <input_type>system_status</input_type>
+                <description>Status of the fan.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Maintenance Alert</name>
+                <type>signal</type>
+                <output_type>alert</output_type>
+                <description>Triggers maintenance alert if the fan is inactive while cooling is operational.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block5</id>
+        <type>function</type>
+        <label>Critical System Shutdown</label>
+        <description>Triggers a critical shutdown when both temperature and humidity exceed emergency thresholds.</description>
+        <gate_type>AND</gate_type>
+        <inputs>
+            <Input>
+                <name>Temperature Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Temperature readings from the sensor.</description>
+            </Input>
+            <Input>
+                <name>Humidity Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Humidity readings from the sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>System Shutdown Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Triggers a system shutdown if both temperature and humidity exceed critical thresholds.</description>
+            </Output>
+        </outputs>
+    </Block>
+</FunctionBlockDiagram>

@@ -1,0 +1,121 @@
+<FunctionBlockDiagram>
+    <Block>
+        <id>block1</id>
+        <type>function</type>
+        <label>Water-Level Threshold Check</label>
+        <description>Checks if the water level is below 20% for triggering the well cleaning mechanism.</description>
+        <gate_type>Threshold</gate_type>
+        <condition>less</condition>
+        <threshold>20%</threshold>
+        <inputs>
+            <Input>
+                <name>Water-Level Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Water level data from the sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Well Cleaning Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Triggers the well cleaning mechanism when the water level is below 20%.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block2</id>
+        <type>function</type>
+        <label>Cleaning Schedule Check</label>
+        <description>Validates that at least 15 days have passed since the last well cleaning for environmental maintenance.</description>
+        <gate_type>Threshold</gate_type>
+        <condition>greater or equal</condition>
+        <threshold>15 days</threshold>
+        <inputs>
+            <Input>
+                <name>Cleaning Schedule Data</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Number of days since the last well cleaning.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Well Cleaning Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Triggers well cleaning if the time since the last cleaning is greater than or equal to 15 days.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block3</id>
+        <type>function</type>
+        <label>Command Trigger Validation</label>
+        <description>Checks if the command trigger signal is sent from the hardware.</description>
+        <gate_type>Validation</gate_type>
+        <inputs>
+            <Input>
+                <name>Command Trigger</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Hardware command trigger signal for activating the well.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Validation Gate</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Validates the command trigger for water collection.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block4</id>
+        <type>function</type>
+        <label>Water-Level Validation Check</label>
+        <description>Validates that the water-level readings are sound before activating the water collection mechanism.</description>
+        <gate_type>Validation</gate_type>
+        <inputs>
+            <Input>
+                <name>Water-Level Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Water level data from the sensor for validation before water collection.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Water Collection Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates the water collection mechanism based on validated water-level data.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block5</id>
+        <type>function</type>
+        <label>Water Collection Activation</label>
+        <description>Activates the water collection mechanism when the command signal and water level are validated.</description>
+        <gate_type>Validation</gate_type>
+        <inputs>
+            <Input>
+                <name>Validation Gate</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Validated signal for water collection.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Water Collection Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Triggers the water collection process after validation.</description>
+            </Output>
+        </outputs>
+    </Block>
+</FunctionBlockDiagram>

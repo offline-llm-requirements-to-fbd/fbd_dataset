@@ -1,0 +1,14 @@
+@startuml
+package "Dataset C" {
+  [External Temperature Sensor Detection] --> [NOT <Gate>]
+[NOT <Gate>] --> [Alert Lights Activation (LEDS-2)]
+  [Internal Temperature Sensor Data] --> [Safety Compliance Checks]
+  [CPU Temperature Data] --> [> 80 <Gate>]
+[> 80 <Gate>] --> [Fan Cooling Activation]
+  [Cabin Humidity Sensor Data] --> [Climate Control Processing]
+  [Humidity Levels] --> [< 20 <Gate>] 
+[< 20 <Gate>] --> [Warning Lights Activation (LEDS-1)]
+  [Air Quality Data (AQi index)] --> [> 300 <Gate>] 
+[> 300 <Gate>] -> [Hazardous Air Quality warning]
+}
+@enduml

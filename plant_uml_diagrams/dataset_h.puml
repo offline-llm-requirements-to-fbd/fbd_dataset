@@ -1,0 +1,19 @@
+@startuml
+package "Dataset H" {
+
+  [Temperature Sensor] --> [> 75°C <Gate>]
+  [Humidity Sensor] --> [> 70% Humidity <Gate>]
+
+  [> 75°C <Gate>] --> [Cooling System Activation]
+  [> 70% Humidity <Gate>] --> [Dehumidifier Activation]
+
+  [Temperature Sensor] --> [AND_Gate]
+  [Humidity Sensor] --> [AND_Gate]
+
+  [AND_Gate] --> [Alert System Activation]
+  [Cooling System Activation] --> [Fan Status]
+  [Fan Status] --> [Maintenance Alert]
+
+  [AND_Gate] --> [Critical Shutdown Activation]
+}
+@enduml

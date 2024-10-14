@@ -1,0 +1,113 @@
+{
+  "dataset": {
+    "id": "Dataset_H",
+    "dataset_description": {
+      "simplified": "A dataset with simple requirements that converge into a few blocks, incorporating gates and complex conditions.",
+      "detailed": "This dataset consists of multiple simple requirements converging into fewer blocks, demonstrating how overlapping requirements are handled. It tests if the model can recognize and efficiently merge similar requirements, using gates to consolidate conditions. Requirements may share similar inputs and outputs, and should be processed effectively to avoid duplications, ensuring clear control of cooling, dehumidification, and safety systems."
+    },
+    "complexity_level": "Intermediate",
+    "requirements": [
+      {
+        "id": "REQ_001",
+        "given": "The system is operational and sensors are active.",
+        "when": "Temperature sensor detects values above 75°C.",
+        "then": "Activate cooling system.",
+        "requires": "Temperature Sensor",
+        "provides": "Cooling System Activation",
+        "embeds": "Cooling Mechanism",
+        "derived_from": "",
+        "description": "ID: REQ_001 GIVEN: The system is operational and sensors are active. WHEN: Temperature sensor detects values above 75°C. THEN: Activate cooling system. REQUIRES: Temperature Sensor. PROVIDES: Cooling System Activation. EMBEDS: Cooling Mechanism. DERIVED FROM: ",
+        "natural_language_requirement": "If the temperature sensor detects a value above 75°C while the system is active, the cooling system should activate to prevent overheating."
+      },
+      {
+        "id": "REQ_002",
+        "given": "The system is operational and sensors are active.",
+        "when": "Humidity sensor detects values above 70%.",
+        "then": "Activate dehumidifier.",
+        "requires": "Humidity Sensor",
+        "provides": "Dehumidifier Activation",
+        "embeds": "Dehumidification System",
+        "derived_from": "",
+        "description": "ID: REQ_002 GIVEN: The system is operational and sensors are active. WHEN: Humidity sensor detects values above 70%. THEN: Activate dehumidifier. REQUIRES: Humidity Sensor. PROVIDES: Dehumidifier Activation. EMBEDS: Dehumidification System. DERIVED FROM: ",
+        "natural_language_requirement": "If the humidity sensor detects a value above 70%, the dehumidifier should activate to maintain optimal humidity levels."
+      },
+      {
+        "id": "REQ_003",
+        "given": "The system is operational and cooling and dehumidification systems are running.",
+        "when": "Temperature and humidity sensors both detect values above their thresholds.",
+        "then": "Trigger alert system.",
+        "requires": "Temperature Sensor, Humidity Sensor",
+        "provides": "Alert System Activation",
+        "embeds": "Alert Mechanism",
+        "derived_from": "REQ_001, REQ_002",
+        "description": "ID: REQ_003 GIVEN: The system is operational and cooling and dehumidification systems are running. WHEN: Temperature and humidity sensors both detect values above their thresholds. THEN: Trigger alert system. REQUIRES: Temperature Sensor, Humidity Sensor. PROVIDES: Alert System Activation. EMBEDS: Alert Mechanism. DERIVED FROM: REQ_001, REQ_002",
+        "natural_language_requirement": "When both temperature and humidity exceed their thresholds, the alert system should be triggered to signal critical conditions."
+      },
+      {
+        "id": "REQ_004",
+        "given": "The system is monitoring environmental conditions.",
+        "when": "The fan is not operational while the cooling system is active.",
+        "then": "Trigger maintenance alert.",
+        "requires": "Cooling System, Fan Status",
+        "provides": "Maintenance Alert",
+        "embeds": "Alert System",
+        "derived_from": "REQ_001",
+        "description": "ID: REQ_004 GIVEN: The system is monitoring environmental conditions. WHEN: The fan is not operational while the cooling system is active. THEN: Trigger maintenance alert. REQUIRES: Cooling System, Fan Status. PROVIDES: Maintenance Alert. EMBEDS: Alert System. DERIVED FROM: REQ_001",
+        "natural_language_requirement": "If the fan is inactive while the cooling system is operational, a maintenance alert should be triggered."
+      },
+      {
+        "id": "REQ_005",
+        "given": "The system is operational.",
+        "when": "Humidity is detected above 60% while temperature exceeds 80°C.",
+        "then": "Trigger a critical system shutdown.",
+        "requires": "Humidity Sensor, Temperature Sensor",
+        "provides": "System Shutdown Activation",
+        "embeds": "Shutdown Mechanism",
+        "derived_from": "REQ_001, REQ_002",
+        "description": "ID: REQ_005 GIVEN: The system is operational. WHEN: Humidity is detected above 60% while temperature exceeds 80°C. THEN: Trigger a critical system shutdown. REQUIRES: Humidity Sensor, Temperature Sensor. PROVIDES: System Shutdown Activation. EMBEDS: Shutdown Mechanism. DERIVED FROM: REQ_001, REQ_002",
+        "natural_language_requirement": "If the humidity exceeds 60% while the temperature is above 80°C, the system should initiate a critical shutdown."
+      },
+      {
+        "id": "REQ_006",
+        "given": "The system remains active and all sensors are online.",
+        "when": "A temperature reading above 75°C is recorded.",
+        "then": "Activate the cooling mechanism.",
+        "requires": "Temperature Sensor",
+        "provides": "Cooling System Activation",
+        "embeds": "Cooling Mechanism",
+        "derived_from": "REQ_001",
+        "description": "ID: REQ_006 GIVEN: The system remains active and all sensors are online. WHEN: A temperature reading above 75°C is recorded. THEN: Activate the cooling mechanism. REQUIRES: Temperature Sensor. PROVIDES: Cooling System Activation. EMBEDS: Cooling Mechanism. DERIVED FROM: REQ_001",
+        "natural_language_requirement": "When the temperature is recorded above 75°C again, the cooling mechanism should be activated."
+      },
+      {
+        "id": "REQ_007",
+        "given": "The system continues to monitor sensor statuses.",
+        "when": "The humidity reaches a critical level of 70%.",
+        "then": "Initiate the dehumidification process.",
+        "requires": "Humidity Sensor",
+        "provides": "Dehumidifier Activation",
+        "embeds": "Dehumidification System",
+        "derived_from": "REQ_002",
+        "description": "ID: REQ_007 GIVEN: The system continues to monitor sensor statuses. WHEN: The humidity reaches a critical level of 70%. THEN: Initiate the dehumidification process. REQUIRES: Humidity Sensor. PROVIDES: Dehumidifier Activation. EMBEDS: Dehumidification System. DERIVED FROM: REQ_002",
+        "natural_language_requirement": "If humidity reaches 70%, the dehumidification system should be activated."
+      },
+      {
+        "id": "REQ_008",
+        "given": "System is running and monitors all environmental factors.",
+        "when": "Temperature and humidity rise simultaneously beyond acceptable limits.",
+        "then": "Activate the critical alert.",
+        "requires": "Temperature Sensor, Humidity Sensor",
+        "provides": "Alert System Activation",
+        "embeds": "Alert Mechanism",
+        "derived_from": "REQ_003",
+        "description": "ID: REQ_008 GIVEN: System is running and monitors all environmental factors. WHEN: Temperature and humidity rise simultaneously beyond acceptable limits. THEN: Activate the critical alert. REQUIRES: Temperature Sensor, Humidity Sensor. PROVIDES: Alert System Activation. EMBEDS: Alert Mechanism. DERIVED FROM: REQ_003",
+        "natural_language_requirement": "When both temperature and humidity exceed limits, the critical alert should be triggered."
+      }
+    ],
+    "plc_xml_code_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plc_xml_code.xml",
+    "plc_xml_code_relative_path": "datasets/dataset_A/plc_xml_code.xml",
+    "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
+    "plantuml_diagram_relative_path": "datasets/dataset_A/plantuml_diagram.puml"
+  }
+}
+

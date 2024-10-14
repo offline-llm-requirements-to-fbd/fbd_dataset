@@ -1,0 +1,126 @@
+<FunctionBlockDiagram>
+    <Block>
+        <id>block1</id>
+        <type>function</type>
+        <label>External Temperature Processing</label>
+        <description>Processes external temperature sensor data.</description>
+        <gate_type>N/A</gate_type>
+        <position x="10" y="10" />
+        <inputs>
+            <Input>
+                <name>External Temperature Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from external temperature sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Temperature Processing</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Processed temperature data.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+    <Block>
+        <id>block2</id>
+        <type>function</type>
+        <label>Internal Temperature Monitoring</label>
+        <description>Monitors internal temperature for safety compliance.</description>
+        <gate_type>N/A</gate_type>
+        <position x="30" y="10" />
+        <inputs>
+            <Input>
+                <name>Internal Temperature Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from internal temperature sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Safety Compliance Checks</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Safety compliance status based on internal temperature data.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+    <Block>
+        <id>block3</id>
+        <type>function</type>
+        <label>Fan Cooling Activation</label>
+        <description>Activates fan cooling when CPU temperature exceeds 80°C.</description>
+        <gate_type>N/A</gate_type>
+        <position x="50" y="10" />
+        <inputs>
+            <Input>
+                <name>CPU Temperature Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from CPU temperature sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Fan Cooling Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates fan cooling system.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+    <Block>
+        <id>block4</id>
+        <type>function</type>
+        <label>Climate Control</label>
+        <description>Processes humidity sensor data for climate control.</description>
+        <gate_type>N/A</gate_type>
+        <position x="70" y="10" />
+        <inputs>
+            <Input>
+                <name>Humidity Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from humidity sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Climate Control Processing</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Processes humidity data for climate regulation.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+    <Block>
+        <id>block5</id>
+        <type>function</type>
+        <label>CO2 Alert Trigger</label>
+        <description>Triggers an alert when CO2 levels are too high.</description>
+        <gate_type>N/A</gate_type>
+        <position x="90" y="10" />
+        <inputs>
+            <Input>
+                <name>Air Quality Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>CO2 levels from air quality sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>CO2 Alert</name>
+                <type>signal</type>
+                <output_type>alert</output_type>
+                <description>Triggers alert for high CO2 levels.</description>
+            </Output>
+        </outputs>
+    </Block>
+</FunctionBlockDiagram>

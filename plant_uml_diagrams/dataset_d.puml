@@ -1,0 +1,29 @@
+@startuml
+package "Dataset D" {
+  [Speed Sensor Data] --> [> Speed <Gate>]
+  [Tilt Sensor Data] --> [> Tilt <Gate>]
+  [> Speed <Gate>] --> [AND_Combined_<Gate>]
+  [> Tilt <Gate>] --> [AND_Combined_<Gate>]
+  [AND_Combined_<Gate>] --> [LED Warning Activation]
+  [AND_Combined_<Gate>] --> [ACT5 Trigger]
+
+  [CTRL1 Data] --> [OR_1 <Gate>]
+  [CTRL2 Data] --> [OR_1 <Gate>]
+  [OR_1 <Gate>] --> [LED1 Activation]
+  [OR_1 <Gate>] --> [ACT1 Trigger]
+
+  [CTRL3 Data] --> [AND_1 <Gate>]
+  [CTRL4 Data] --> [AND_1 <Gate>]
+  [CTRL5 Data] --> [AND_1 <Gate>]
+  [AND_1 <Gate>] --> [LED2 Activation]
+  [AND_1 <Gate>] --> [ACT2 Trigger]
+
+  [LED1 Activation] --> [ACT1 Status]
+  [LED2 Activation] --> [ACT2 Status]
+  [ACT1 Status] --> [AND_2 <Gate>]
+  [ACT2 Status] --> [AND_2 <Gate>]
+  [AND_2 <Gate>] --> [Emergency Brake Activation]
+
+  [ACT5 Trigger] --> [Emergency Brake Activation]
+}
+@enduml

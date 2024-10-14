@@ -1,0 +1,89 @@
+{
+  "dataset": {
+    "id": "Dataset_E",
+    "dataset_description": {
+      "simplified": "A dataset with loops, circular dependencies, and logical gates between requirements, controlling both activation and deactivation steps.",
+      "detailed": "This dataset introduces circular dependencies and loops where outputs of one requirement serve as inputs for another, creating feedback loops. The system continuously monitors CPU temperature and humidity levels to control both the Fan Cooling and Dehumidifier systems. It incorporates logical gates (AND, OR, and Threshold) to manage not only the activation but also the deactivation and continuation of these systems. The goal is to evaluate the model's ability to detect, handle, and correctly represent cyclic dependencies while ensuring no illogical connections are made."
+    },
+    "complexity_level": "Intermediate",
+    "requirements": [
+      {
+        "id": "REQ_007",
+        "given": "The CPU temperature exceeds 75°C and the Dehumidifier is running.",
+        "when": "Both conditions (CPU temperature > 75°C and Dehumidifier status) are true.",
+        "then": "The system activates or keeps running the Fan Cooling mechanism.",
+        "requires": "CPU Temperature Sensor, Dehumidifier Status",
+        "provides": "Fan Cooling Activation/Continuation",
+        "embeds": "",
+        "derived_from": "Cooling and environmental control logic requirements.",
+        "description": "ID: REQ_007 - GIVEN: The CPU temperature exceeds 75°C and the Dehumidifier is running. WHEN: Both conditions (CPU temperature > 75°C and Dehumidifier status) are true. THEN: The system activates or keeps running the Fan Cooling mechanism. REQUIRES: CPU Temperature Sensor, Dehumidifier Status. PROVIDES: Fan Cooling Activation/Continuation. EMBEDS: AND Gate. DERIVED FROM: Cooling and environmental control logic requirements.",
+        "natural_language_requirement": "The system must activate or continue running the fan cooling mechanism when the CPU temperature rises above 75°C, provided that the dehumidifier is already operating."
+      },
+      {
+        "id": "REQ_008",
+        "given": "Fan Cooling is active and Humidity exceeds 60%.",
+        "when": "Both Fan Cooling status and high humidity level (above 60%) are detected.",
+        "then": "The system activates the Dehumidifier.",
+        "requires": "Fan Cooling Status, Humidity Sensor",
+        "provides": "Dehumidifier Activation",
+        "embeds": "",
+        "derived_from": "Humidity control and environmental system logic.",
+        "description": "ID: REQ_008 - GIVEN: Fan Cooling is active and Humidity exceeds 60%. WHEN: Both Fan Cooling status and high humidity level (above 60%) are detected. THEN: The system activates the Dehumidifier. REQUIRES: Fan Cooling Status, Humidity Sensor. PROVIDES: Dehumidifier Activation. EMBEDS: AND Gate. DERIVED FROM: Humidity control and environmental system logic.",
+        "natural_language_requirement": "When the fan cooling is running and the system detects that humidity levels exceed 60%, the system should activate the dehumidifier to bring the humidity back to acceptable levels."
+      },
+      {
+        "id": "REQ_009",
+        "given": "Dehumidifier is activated and CPU temperature is greater than 85°C.",
+        "when": "Both Dehumidifier status and high CPU temperature (> 85°C) are detected.",
+        "then": "The system continues running Fan Cooling.",
+        "requires": "Dehumidifier Status, CPU Temperature Sensor",
+        "provides": "Fan Cooling Continuation",
+        "embeds": "",
+        "derived_from": "Cooling loop and environmental feedback logic.",
+        "description": "ID: REQ_009 - GIVEN: Dehumidifier is activated and CPU temperature is greater than 85°C. WHEN: Both Dehumidifier status and high CPU temperature (> 85°C) are detected. THEN: The system continues running Fan Cooling. REQUIRES: Dehumidifier Status, CPU Temperature Sensor. PROVIDES: Fan Cooling Continuation. EMBEDS: AND Gate. DERIVED FROM: Cooling loop and environmental feedback logic.",
+        "natural_language_requirement": "If the dehumidifier is running and the CPU temperature exceeds 85°C, the fan cooling system should remain operational to maintain optimal CPU temperature."
+      },
+      {
+        "id": "REQ_010",
+        "given": "Humidity exceeds 60% and CPU cooling is active.",
+        "when": "Both high humidity (> 60%) and active CPU cooling are detected.",
+        "then": "The system continues running the Dehumidifier.",
+        "requires": "Humidity Sensor, CPU Cooling Status",
+        "provides": "Dehumidifier Continuation",
+        "embeds": "",
+        "derived_from": "Environmental loop control logic.",
+        "description": "ID: REQ_010 - GIVEN: Humidity exceeds 60% and CPU cooling is active. WHEN: Both high humidity (> 60%) and active CPU cooling are detected. THEN: The system continues running the Dehumidifier. REQUIRES: Humidity Sensor, CPU Cooling Status. PROVIDES: Dehumidifier Continuation. EMBEDS: OR Gate. DERIVED FROM: Environmental loop control logic.",
+        "natural_language_requirement": "The dehumidifier should remain active if humidity levels exceed 60%, and the CPU cooling system is currently active."
+      },
+      {
+        "id": "REQ_011",
+        "given": "CPU temperature drops below 75°C and Fan Cooling is active.",
+        "when": "CPU temperature drops below 75°C while Fan Cooling is active.",
+        "then": "The system deactivates the Fan Cooling mechanism.",
+        "requires": "CPU Temperature Sensor, Fan Cooling Status",
+        "provides": "Fan Cooling Deactivation",
+        "embeds": "",
+        "derived_from": "Cooling deactivation logic.",
+        "description": "ID: REQ_011 - GIVEN: CPU temperature drops below 75°C and Fan Cooling is active. WHEN: CPU temperature drops below 75°C while Fan Cooling is active. THEN: The system deactivates the Fan Cooling mechanism. REQUIRES: CPU Temperature Sensor, Fan Cooling Status. PROVIDES: Fan Cooling Deactivation. EMBEDS: Threshold Gate. DERIVED FROM: Cooling deactivation logic.",
+        "natural_language_requirement": "When CPU temperature falls below 75°C, the system should deactivate the fan cooling to conserve energy."
+      },
+      {
+        "id": "REQ_012",
+        "given": "Humidity drops below 60% and the Dehumidifier is running.",
+        "when": "Humidity drops below 60% while the Dehumidifier is active.",
+        "then": "The system deactivates the Dehumidifier.",
+        "requires": "Humidity Sensor, Dehumidifier Status",
+        "provides": "Dehumidifier Deactivation",
+        "embeds": "",
+        "derived_from": "Humidity control deactivation logic.",
+        "description": "ID: REQ_012 - GIVEN: Humidity drops below 60% and the Dehumidifier is running. WHEN: Humidity drops below 60% while the Dehumidifier is active. THEN: The system deactivates the Dehumidifier. REQUIRES: Humidity Sensor, Dehumidifier Status. PROVIDES: Dehumidifier Deactivation. EMBEDS: Threshold Gate. DERIVED FROM: Humidity control deactivation logic.",
+        "natural_language_requirement": "Once the humidity level drops below 60%, the system should deactivate the dehumidifier to maintain efficient resource use."
+      }
+    ],
+    "plc_xml_code_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plc_xml_code.xml",
+    "plc_xml_code_relative_path": "datasets/dataset_A/plc_xml_code.xml",
+    "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
+    "plantuml_diagram_relative_path": "datasets/dataset_A/plantuml_diagram.puml"
+  }
+}
+

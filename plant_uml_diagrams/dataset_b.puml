@@ -1,0 +1,30 @@
+@startuml
+package "Dataset B" {
+  [CTRL1 Data] --> [OR <Gate>]
+  [CTRL2 Data] --> [OR <Gate>]
+  [OR <Gate>] --> [LED1 Activation]
+  [OR <Gate>] --> [ACT1 Trigger]
+
+  [CTRL3 Data] --> [>=6 <Gate>]
+  [CTRL4 Data] --> [>=6 <Gate>]
+  [CTRL5 Data] --> [>=6 <Gate>]
+  [>=6 <Gate>] --> [LED2 Activation]
+  [>=6 <Gate>] --> [ACT2 Trigger]
+
+  [LED1 Activation] --> [ACT1 Status]
+  [LED2 Activation] --> [ACT2 Status]
+  [ACT1 Status] --> [AND_2 <Gate>]
+  [ACT2 Status] --> [AND_2 <Gate>]
+  [AND_2 <Gate>] --> [Emergency Brake Activation]
+
+ [Speed Sensor Data] --> [> Speed <Gate>]
+  [Constant Signal (120 km/h)] --> [> Speed <Gate>]
+  [> Speed <Gate>] --> [LED3 Activation]
+  [> Speed <Gate>] --> [ACT3 Trigger]
+
+  [Tilt Sensor Data] --> [< Tilt <Gate>]
+  [Constant Signal (5 degrees)] --> [< Tilt <Gate>]
+  [< Tilt <Gate>] --> [LED4 Activation]
+  [< Tilt <Gate>] --> [ACT4 Trigger]
+}
+@enduml

@@ -1,0 +1,181 @@
+<FunctionBlockDiagram>
+    <Block>
+        <id>block1</id>
+        <type>function</type>
+        <label>CTRL1 or CTRL2 Detection</label>
+        <description>Monitors CTRL1 and CTRL2 signals. Activates LED1 and triggers ACT1 when either or both signals are detected.</description>
+        <gate_type>OR</gate_type>
+        <inputs>
+            <Input>
+                <name>CTRL1</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal indicating temperature threshold exceeded.</description>
+            </Input>
+            <Input>
+                <name>CTRL2</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal indicating maximum brake usage reached.</description>
+            </Input>
+        </inputs>
+        <content>Determines if either CTRL1 or CTRL2 signals are active to activate LED1 and trigger ACT1.</content>
+        <outputs>
+            <Output>
+                <name>LED1</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Activates LED1 when either CTRL1 or CTRL2 is detected.</description>
+            </Output>
+            <Output>
+                <name>ACT1</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Engages cooling mechanism ACT1 based on CTRL1 or CTRL2 activation.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block2</id>
+        <type>function</type>
+        <label>CTRL3, CTRL4, and CTRL5 Monitoring</label>
+        <description>Monitors CTRL3, CTRL4, and CTRL5 signals. Activates LED2 and triggers ACT2 if all readings are greater than or equal to 6.</description>
+        <gate_type>THRESHOLD</gate_type>
+        <condition>greater or equal</condition>
+        <threshold>6</threshold>
+        <inputs>
+            <Input>
+                <name>CTRL3</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal indicating abnormal pressure levels.</description>
+            </Input>
+            <Input>
+                <name>CTRL4</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal monitoring braking system integrity.</description>
+            </Input>
+            <Input>
+                <name>CTRL5</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal identifying potential track obstructions.</description>
+            </Input>
+        </inputs>
+        <content>Processes CTRL3, CTRL4, and CTRL5 inputs to activate LED2 and ACT2 if all thresholds are met or exceeded.</content>
+        <outputs>
+            <Output>
+                <name>LED2</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Activates LED2 when all readings from CTRL3, CTRL4, and CTRL5 exceed the threshold.</description>
+            </Output>
+            <Output>
+                <name>ACT2</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Engages braking mechanism ACT2 based on CTRL3, CTRL4, and CTRL5 signals.</description>
+            </Output>
+        </outputs>
+    </Block>
+    
+    <!-- Block 3: Emergency Brake Activation -->
+    <Block>
+        <id>block3</id>
+        <type>function</type>
+        <label>Emergency Brake Activation</label>
+        <description>Activates emergency brake BRK1 if both ACT1 and ACT2 are active.</description>
+        <gate_type>AND</gate_type>
+        <inputs>
+            <Input>
+                <name>ACT1</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Signal from ACT1 mechanism indicating activation.</description>
+            </Input>
+            <Input>
+                <name>ACT2</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Signal from ACT2 mechanism indicating activation.</description>
+            </Input>
+        </inputs>
+        <content>Checks if both ACT1 and ACT2 are active to engage the emergency brake (BRK1).</content>
+        <outputs>
+            <Output>
+                <name>BRK1</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Engages the emergency brake BRK1 when both ACT1 and ACT2 are active.</description>
+            </Output>
+        </outputs>
+    </Block>
+    
+    <Block>
+        <id>block4</id>
+        <type>function</type>
+        <label>Speed Monitoring</label>
+        <description>Monitors train speed and activates LED3 and ACT3 if the speed exceeds 120 km/h.</description>
+        <gate_type>THRESHOLD</gate_type>
+        <condition>greater</condition>
+        <threshold>120 km/h</threshold>
+        <inputs>
+            <Input>
+                <name>Speed Sensor</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Monitors the current speed of the train.</description>
+            </Input>
+        </inputs>
+        <content>Checks if the train's speed exceeds 120 km/h and engages LED3 and ACT3 for speed reduction.</content>
+        <outputs>
+            <Output>
+                <name>LED3</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Activates the speed warning light LED3 when the speed threshold is exceeded.</description>
+            </Output>
+            <Output>
+                <name>ACT3</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Engages the speed reduction mechanism ACT3 when the speed threshold is exceeded.</description>
+            </Output>
+        </outputs>
+    </Block>
+    
+    <!-- Block 5: Tilt Monitoring -->
+    <Block>
+        <id>block5</id>
+        <type>function</type>
+        <label>Tilt Monitoring</label>
+        <description>Monitors train tilt and activates LED4 and ACT4 if the incline is less than 5 degrees.</description>
+        <gate_type>THRESHOLD</gate_type>
+        <condition>less</condition>
+        <threshold>5 degrees</threshold>
+        <inputs>
+            <Input>
+                <name>Tilt Sensor</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Monitors the tilt of the train for stability.</description>
+            </Input>
+        </inputs>
+        <content>Processes tilt data to stabilize the train by engaging LED4 and ACT4 when the tilt threshold is not met.</content>
+        <outputs>
+            <Output>
+                <name>LED4</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Activates the tilt warning light LED4 when the tilt threshold is less than 5 degrees.</description>
+            </Output>
+            <Output>
+                <name>ACT4</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Engages the suspension adjustment mechanism ACT4 based on the tilt condition.</description>
+            </Output>
+        </outputs>
+    </Block>
+</FunctionBlockDiagram>

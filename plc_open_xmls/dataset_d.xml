@@ -1,0 +1,199 @@
+<FunctionBlockDiagram>
+    <Block>
+        <id>block1</id>
+        <type>function</type>
+        <label>Speed Gate</label>
+        <description>Processes speed sensor data to trigger actions based on threshold values.</description>
+        <gate_type>THRESHOLD</gate_type>
+        <condition>greater</condition>
+        <threshold>113 kilometers per hour</threshold>
+        <inputs>
+            <Input>
+                <name>Speed Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from speed sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>AND_Combined_Gate</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Combined output for AND gate processing speed data.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block2</id>
+        <type>function</type>
+        <label>Tilt Gate</label>
+        <description>Processes tilt sensor data to trigger actions based on threshold values.</description>
+        <gate_type>THRESHOLD</gate_type>
+        <condition>greater</condition>
+        <threshold>7 degrees</threshold>
+        <inputs>
+            <Input>
+                <name>Tilt Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from tilt sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>AND_Combined_Gate</name>
+                <type>signal</type>
+                <output_type>data</output_type>
+                <description>Combined output for AND gate processing tilt data.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block3</id>
+        <type>function</type>
+        <label>AND Combined Gate</label>
+        <description>Combines the output from speed and tilt gates to trigger actions.</description>
+        <gate_type>AND</gate_type>
+        <inputs>
+            <Input>
+                <name>Speed Gate Output</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Output from Speed Gate.</description>
+            </Input>
+            <Input>
+                <name>Tilt Gate Output</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Output from Tilt Gate.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>LED Warning Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates LED warning when combined AND gate condition is met.</description>
+            </Output>
+            <Output>
+                <name>ACT5 Trigger</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Triggers ACT5 when combined AND gate condition is met.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block4</id>
+        <type>function</type>
+        <label>OR Gate 1</label>
+        <description>Monitors CTRL1 and CTRL2 signals, activating LED1 and triggering ACT1.</description>
+        <gate_type>OR</gate_type>
+        <inputs>
+            <Input>
+                <name>CTRL1 Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal from CTRL1 sensor.</description>
+            </Input>
+            <Input>
+                <name>CTRL2 Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal from CTRL2 sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>LED1 Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates LED1 when either CTRL1 or CTRL2 is detected.</description>
+            </Output>
+            <Output>
+                <name>ACT1 Trigger</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Triggers ACT1 when either CTRL1 or CTRL2 is detected.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block5</id>
+        <type>function</type>
+        <label>AND Gate 1</label>
+        <description>Monitors CTRL3, CTRL4, and CTRL5 signals, activating LED2 and triggering ACT2.</description>
+        <gate_type>AND</gate_type>
+        <inputs>
+            <Input>
+                <name>CTRL3 Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal from CTRL3 sensor.</description>
+            </Input>
+            <Input>
+                <name>CTRL4 Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal from CTRL4 sensor.</description>
+            </Input>
+            <Input>
+                <name>CTRL5 Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Signal from CTRL5 sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>LED2 Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates LED2 when CTRL3, CTRL4, and CTRL5 conditions are met.</description>
+            </Output>
+            <Output>
+                <name>ACT2 Trigger</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Triggers ACT2 when CTRL3, CTRL4, and CTRL5 conditions are met.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block6</id>
+        <type>function</type>
+        <label>Emergency Brake Activation</label>
+        <description>Applies the emergency brake (BRK1) if both ACT1 and ACT2 are active or ACT5 is triggered.</description>
+        <gate_type>AND</gate_type>
+        <inputs>
+            <Input>
+                <name>ACT1 Status</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Signal from ACT1 mechanism indicating activation.</description>
+            </Input>
+            <Input>
+                <name>ACT2 Status</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Signal from ACT2 mechanism indicating activation.</description>
+            </Input>
+            <Input>
+                <name>ACT5 Trigger</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Signal from ACT5 trigger mechanism.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Emergency Brake Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates the emergency brake when conditions are met.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+</FunctionBlockDiagram>

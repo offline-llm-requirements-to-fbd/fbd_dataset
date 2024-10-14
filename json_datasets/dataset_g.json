@@ -1,0 +1,42 @@
+{
+  "dataset": {
+    "id": "Dataset_G",
+    "dataset_description": {
+      "simplified": "A dataset with intentionally ambiguous requirements focused on well control systems.",
+      "detailed": "This dataset focuses on requirements related to well control systems, specifically ambiguous scenarios involving well cleaning and water collection. It challenges the model’s ability to interpret requirements with multiple potential meanings or undefined criteria while maintaining clarity for system actions."
+    },
+    "complexity_level": "Intermediate",
+    "requirements": [
+      {
+        "id": "REQ_001",
+        "given": "The well's water-level readings and the number of days since the last cleaning are provided.",
+        "when": "The water level is not higher than 20% and the well hasn't been cleaned for at least 15 days.",
+        "then": "The system shall activate the cleaning mechanism for the well to ensure proper environmental control.",
+        "requires": "Water-Level Sensor, Cleaning Schedule",
+        "provides": "Well Cleaning Activation",
+        "embeds": "Threshold Gate",
+        "derived_from": "Environmental control logic for well maintenance.",
+        "description": "ID: REQ_001 - GIVEN: The well's water-level readings and the number of days since the last cleaning are provided. WHEN: The water level is not higher than 20% and the well hasn't been cleaned for at least 15 days. THEN: The system shall activate the cleaning mechanism for the well to ensure proper environmental control. REQUIRES: Water-Level Sensor, Cleaning Schedule. PROVIDES: Well Cleaning Activation. EMBEDS: Threshold Gate. DERIVED FROM: Environmental control logic for well maintenance.",
+        "natural_language_requirement": "The system will activate the cleaning mechanism for the well based on water-level readings. If the level is not higher than 20% and the number of days since the last cleaning is no less than 15, the cleaning mechanism will be triggered to maintain environmental control."
+      },
+      {
+        "id": "REQ_002",
+        "given": "The command trigger signal is sent from the hardware and the water-level sensor readings are available.",
+        "when": "The command trigger signal is received, and the water-level readings are sound.",
+        "then": "The system shall activate the well to collect water.",
+        "requires": "Command Trigger, Water-Level Sensor",
+        "provides": "Water Collection Activation",
+        "embeds": "Validation Gate",
+        "derived_from": "Operational procedures for well water collection.",
+        "description": "ID: REQ_002 - GIVEN: The command trigger signal is sent from the hardware and the water-level sensor readings are available. WHEN: The command trigger signal is received, and the water-level readings are sound. THEN: The system shall activate the well to collect water. REQUIRES: Command Trigger, Water-Level Sensor. PROVIDES: Water Collection Activation. EMBEDS: Validation Gate. DERIVED FROM: Operational procedures for well water collection.",
+        "natural_language_requirement": "The system will activate the well to collect water if both the command trigger signal is sent from the hardware and sound."
+      }
+    ],
+    
+    "plc_xml_code_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plc_xml_code.xml",
+    "plc_xml_code_relative_path": "datasets/dataset_A/plc_xml_code.xml",
+    "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
+    "plantuml_diagram_relative_path": "datasets/dataset_A/plantuml_diagram.puml"
+  }
+}
+

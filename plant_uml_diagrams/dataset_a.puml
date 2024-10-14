@@ -1,0 +1,18 @@
+@startuml
+package "Dataset A" {
+  [CTRL1 Data] --> [OR <Gate>]
+  [CTRL2 Data] --> [OR <Gate>]
+  [OR <Gate>] --> [LED1 Activation and ACT1 Trigger]
+
+  [CTRL3 Data] --> [>=5 <Gate>]
+  [CTRL4 Data] --> [>=5 <Gate>]
+  [CTRL5 Data] --> [>=5 <Gate>]
+  [>=5 <Gate>] --> [LED2 Activation and ACT2 Trigger]
+
+  [LED1 Activation and ACT1 Trigger] --> [ACT1 Status]
+  [LED2 Activation and ACT2 Trigger] --> [ACT2 Status]
+  [ACT1 Status] --> [AND <Gate>]
+  [ACT2 Status] --> [AND <Gate>]
+  [AND <Gate>] --> [Emergency Brake Activation]
+}
+@enduml

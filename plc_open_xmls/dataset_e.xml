@@ -1,0 +1,164 @@
+<FunctionBlockDiagram>
+    <Block>
+        <id>block1</id>
+        <type>function</type>
+        <label>CPU Temperature Processing</label>
+        <description>Processes CPU temperature data and triggers fan cooling if temperature exceeds 75°C.</description>
+        <gate_type>Threshold</gate_type>
+        <condition>greater</condition>
+        <threshold>75°C</threshold>
+        <inputs>
+            <Input>
+                <name>CPU Temperature Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from CPU temperature sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Fan Cooling Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates or continues running the fan cooling mechanism.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+    <Block>
+        <id>block2</id>
+        <type>function</type>
+        <label>Humidity Sensor Processing</label>
+        <description>Processes humidity sensor data and triggers the dehumidifier when humidity exceeds 60%.</description>
+        <gate_type>Threshold</gate_type>
+        <condition>greater</condition>
+        <threshold>60%</threshold>
+        <inputs>
+            <Input>
+                <name>Humidity Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from humidity sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Dehumidifier Activation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates the dehumidifier if humidity exceeds the threshold.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+    <Block>
+        <id>block3</id>
+        <type>function</type>
+        <label>Fan Cooling Continuation</label>
+        <description>Keeps the fan cooling mechanism running when both the dehumidifier is active and CPU temperature exceeds 85°C.</description>
+        <gate_type>AND</gate_type>
+        <inputs>
+            <Input>
+                <name>Dehumidifier Status</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Status of the dehumidifier (active/inactive).</description>
+            </Input>
+            <Input>
+                <name>CPU Temperature Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from CPU temperature sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Fan Cooling Continuation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Keeps the fan cooling mechanism running.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+    <Block>
+        <id>block4</id>
+        <type>function</type>
+        <label>Dehumidifier Continuation</label>
+        <description>Ensures the dehumidifier remains active if humidity exceeds 60% and CPU cooling is active.</description>
+        <gate_type>OR</gate_type>
+        <inputs>
+            <Input>
+                <name>Humidity Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from humidity sensor.</description>
+            </Input>
+            <Input>
+                <name>CPU Cooling Status</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Status of the CPU cooling mechanism.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Dehumidifier Continuation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Keeps the dehumidifier running.</description>
+            </Output>
+        </outputs>
+    </Block>
+    <Block>
+        <id>block5</id>
+        <type>function</type>
+        <label>Fan Cooling Deactivation</label>
+        <description>Deactivates fan cooling when the CPU temperature drops below 75°C.</description>
+        <gate_type>Threshold</gate_type>
+        <condition>less</condition>
+        <threshold>75°C</threshold>
+        <inputs>
+            <Input>
+                <name>CPU Temperature Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from CPU temperature sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Fan Cooling Deactivation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Deactivates the fan cooling mechanism.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+    <Block>
+        <id>block6</id>
+        <type>function</type>
+        <label>Dehumidifier Deactivation</label>
+        <description>Deactivates the dehumidifier when humidity drops below 60%.</description>
+        <gate_type>Threshold</gate_type>
+        <condition>less</condition>
+        <threshold>60%</threshold>
+        <inputs>
+            <Input>
+                <name>Humidity Sensor Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from humidity sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Dehumidifier Deactivation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Deactivates the dehumidifier when humidity falls below 60%.</description>
+            </Output>
+        </outputs>
+    </Block>
+</FunctionBlockDiagram>

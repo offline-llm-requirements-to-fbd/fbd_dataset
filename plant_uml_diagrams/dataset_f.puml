@@ -1,0 +1,13 @@
+@startuml
+package "Dataset F" {
+  [CPU Temperature Data] --> [> 75°C <Gate>]
+  [CPU Temperature Data] --> [< 75°C <Gate>]
+
+  [> 75°C <Gate>] --> [Fan Cooling Activation/Continuation]
+  [Fan Cooling Activation/Continuation] --> [< 75°C <Gate>]
+
+  [< 75°C <Gate>] --> [Fan Cooling Deactivation]
+  [Fan Cooling Activation/Continuation] --> [CPU Temperature Data]
+  [Fan Cooling Deactivation] --> [CPU Temperature Data]
+}
+@enduml

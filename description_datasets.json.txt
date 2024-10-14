@@ -1,0 +1,52 @@
+{
+  "datasets": [
+    {
+      "id": "Dataset_ID", // Dataset identifier
+      "description": {
+        "simplified": "A brief, high-level summary of the dataset's purpose and contents.",
+        "detailed": "A comprehensive description of the dataset, explaining the overall structure, types of requirements included, and the testing purpose it serves. This should also include any relevant context or background."
+      },
+      "complexity_level": "Complexity",
+      "requirements": [
+        {
+          // Requirement identifier
+          "id": "Requirement_ID",
+          // Preconditions for the requirement
+          "given": "The preconditions that must be met for this requirement to be relevant (e.g., specific signals, statuses, or data points).",
+          // Trigger conditions
+          "when": "The trigger conditions under which the requirement becomes relevant (e.g., a specific state of the system or environment).",
+          // Outcome when the conditions are met
+          "then": "The expected outcome or action that the system must take when the 'given' and 'when' conditions are met.",
+          // Dependencies for the requirement
+          "requires": "Any components, systems, or data that this requirement depends on for its execution (e.g., specific sensors, control systems).",
+          // Outputs produced
+          "provides": "The outputs or states produced when this requirement is fulfilled (e.g., activating a mechanism, lighting up an indicator).",
+          // Embedded systems involved
+          "embeds": "Other systems or components that are directly involved in fulfilling this requirement (if applicable). This could include embedded software or hardware elements.",
+          // Reference to higher-level requirements
+          "derived_from": "Reference to higher-level requirements or sources this requirement is derived from. This shows traceability and alignment with overall system goals.",
+          // Concatenated explanation
+          "description": "A concatenated narrative that combines the 'given', 'when', 'then', 'requires', 'provides', 'embeds', and 'derived_from' fields to form a detailed explanation of the requirement. This is important for ensuring all relevant information is captured comprehensively.",
+          // Human-readable version
+          "natural_language_requirement": "A natural language version of the requirement, written as a human-readable explanation that conveys the intention and purpose of the requirement clearly. It should describe the requirement as an expert in requirements engineering would."
+        },
+        {
+          "id": "Requirement_ID_2",
+          // Additional requirements follow the same structure
+        }
+      ],
+      // URL to the XML representation of the dataset
+      "plc_xml_code_url": "URL_to_PLC_XML_Code",
+      // Path to XML file within local setup
+      "plc_xml_code_relative_path": "Relative_path_to_PLC_XML_Code",
+      // URL to PlantUML code for diagrams
+      "plantuml_diagram_url": "URL_to_PlantUML_Code",
+      // Path to PlantUML file in local setup
+      "plantuml_diagram_relative_path": "Relative_path_to_PlantUML_Code"
+    },
+    {
+      "id": "Dataset_ID_2",
+      // Additional datasets follow the same structure as above
+    }
+  ]
+}

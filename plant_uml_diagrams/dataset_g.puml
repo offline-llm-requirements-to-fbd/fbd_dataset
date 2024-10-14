@@ -1,0 +1,16 @@
+@startuml
+package "Dataset G" {
+  
+  [Water-Level Sensor Data] --> [< 20% Water Level <Gate>]
+  [Cleaning Schedule Data] --> [> 15 Days <Gate>]
+
+  [< 20% Water Level <Gate>] --> [Well Cleaning Activation]
+  [> 15 Days <Gate>] --> [Well Cleaning Activation]
+  
+  [Command Trigger] --> [Validation Gate] 
+  [Water-Level Sensor Data] --> [Validation Gate]
+  
+  [Validation Gate] --> [Water Collection Activation]
+  
+}
+@enduml

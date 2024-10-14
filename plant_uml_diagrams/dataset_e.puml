@@ -1,0 +1,34 @@
+@startuml
+package "Dataset E" {
+
+  [CPU Temperature Data] --> [> 75°C <Gate>]
+  [Humidity Sensor Data] --> [> 60% Humidity <Gate>]
+
+  [> 75°C <Gate>] --> [Fan Cooling Activation]
+  [> 60% Humidity <Gate>] --> [Dehumidifier Activation]
+
+ [Fan Cooling Activation] --> [CPU Temperature Data]
+  [Dehumidifier Feedback] --> [OR <Gate>]
+
+  [Fan Cooling Activation] --> [AND <Gate>]
+  [Fan Cooling Activation] --> [Dehumidifier Feedback]
+  [Dehumidifier Activation] --> [AND <Gate>]
+  
+  [AND <Gate>] --> [Humidity Sensor Data]
+  [AND <Gate>] --> [CPU Temperature Data]
+
+  [Fan Cooling Activation] -->  [< 75°C <Gate>]
+
+[< 75°C <Gate>]  -->  [Fan Cooling Deactivation]
+  [Dehumidifier Activation] --> [< 60% Humidity <Gate>]
+  [< 60% Humidity <Gate>] -->  [Dehumidifier Deactivation]
+
+  [Fan Cooling Deactivation] --> [OR <Gate>]
+  [Dehumidifier Deactivation] --> [OR <Gate>]
+
+  [OR <Gate>] --> [CPU Temperature Data]
+  [OR <Gate>] --> [Humidity Sensor Data]
+  
+}
+@enduml
+

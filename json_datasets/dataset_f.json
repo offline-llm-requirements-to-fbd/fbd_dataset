@@ -1,0 +1,42 @@
+{
+  "dataset": {
+    "id": "Dataset_F",
+    "dataset_description": {
+      "simplified": "A basic dataset featuring a single temperature-based feedback loop for fan cooling control.",
+      "detailed": "This dataset focuses on a simple feedback loop involving fan cooling based on CPU temperature thresholds. It includes the activation, continuation, and deactivation of the fan cooling mechanism. The dataset tests the model's ability to handle basic cyclic dependencies in system control logic using a minimal structure."
+    },
+    "complexity_level": "Basic",
+    "requirements": [
+      {
+        "id": "REQ_013",
+        "given": "The CPU temperature exceeds 75°C.",
+        "when": "The CPU temperature rises above 75°C.",
+        "then": "The system activates or continues running the Fan Cooling mechanism.",
+        "requires": "CPU Temperature Sensor",
+        "provides": "Fan Cooling Activation/Continuation",
+        "embeds": "Threshold Gate",
+        "derived_from": "Basic cooling control logic.",
+        "description": "ID: REQ_013 - GIVEN: The CPU temperature exceeds 75°C. WHEN: The CPU temperature rises above 75°C. THEN: The system activates or continues running the Fan Cooling mechanism. REQUIRES: CPU Temperature Sensor. PROVIDES: Fan Cooling Activation/Continuation. EMBEDS: Threshold Gate. DERIVED FROM: Basic cooling control logic.",
+        "natural_language_requirement": "The system shall activate or continue running the fan cooling mechanism when the CPU temperature exceeds 75°C."
+      },
+      {
+        "id": "REQ_014",
+        "given": "The CPU temperature drops below 75°C while the Fan Cooling mechanism is active.",
+        "when": "The CPU temperature falls below 75°C.",
+        "then": "The system deactivates the Fan Cooling mechanism.",
+        "requires": "CPU Temperature Sensor, Fan Cooling Status",
+        "provides": "Fan Cooling Deactivation",
+        "embeds": "Threshold Gate",
+        "derived_from": "Basic cooling deactivation logic.",
+        "description": "ID: REQ_014 - GIVEN: The CPU temperature drops below 75°C while the Fan Cooling mechanism is active. WHEN: The CPU temperature falls below 75°C. THEN: The system deactivates the Fan Cooling mechanism. REQUIRES: CPU Temperature Sensor, Fan Cooling Status. PROVIDES: Fan Cooling Deactivation. EMBEDS: Threshold Gate. DERIVED FROM: Basic cooling deactivation logic.",
+        "natural_language_requirement": "The system shall deactivate the fan cooling mechanism when the CPU temperature drops below 75°C."
+      }
+    ],
+    
+    "plc_xml_code_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plc_xml_code.xml",
+    "plc_xml_code_relative_path": "datasets/dataset_A/plc_xml_code.xml",
+    "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
+    "plantuml_diagram_relative_path": "datasets/dataset_A/plantuml_diagram.puml"
+    }
+}
+

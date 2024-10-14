@@ -1,0 +1,59 @@
+<FunctionBlockDiagram>
+    <Block>
+        <id>block1</id>
+        <type>function</type>
+        <label>Fan Cooling Activation/Continuation</label>
+        <description>Activates or continues running fan cooling when CPU temperature exceeds 75°C.</description>
+        <gate_type>THRESHOLD</gate_type>
+        <condition>greater</condition>
+        <threshold>75°C</threshold>
+        <inputs>
+            <Input>
+                <name>CPU Temperature Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from CPU temperature sensor.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Fan Cooling Activation/Continuation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Activates or continues the fan cooling system operation.</description>
+            </Output>
+        </outputs>
+    </Block>
+
+    <Block>
+        <id>block2</id>
+        <type>function</type>
+        <label>Fan Cooling Deactivation</label>
+        <description>Deactivates fan cooling when CPU temperature drops below 75°C.</description>
+        <gate_type>THRESHOLD</gate_type>
+        <condition>less</condition>
+        <threshold>75°C</threshold>
+        <inputs>
+            <Input>
+                <name>CPU Temperature Data</name>
+                <type>signal</type>
+                <input_type>sensor</input_type>
+                <description>Data from CPU temperature sensor.</description>
+            </Input>
+            <Input>
+                <name>Fan Cooling Status</name>
+                <type>signal</type>
+                <input_type>data</input_type>
+                <description>Status of the fan cooling system.</description>
+            </Input>
+        </inputs>
+        <outputs>
+            <Output>
+                <name>Fan Cooling Deactivation</name>
+                <type>signal</type>
+                <output_type>action</output_type>
+                <description>Deactivates fan cooling system.</description>
+            </Output>
+        </outputs>
+    </Block>
+</FunctionBlockDiagram>

@@ -1,0 +1,77 @@
+{
+  "dataset": {
+    "id": "Dataset_D",
+    "dataset_description": {
+      "simplified": "A complex dataset with multiple pathways, dependencies, and convergence points among requirements.",
+      "detailed": "This dataset is designed to test the model's ability to manage intricate relationships and dependencies between requirements. It includes multiple pathways, interdependencies, and convergence points where different branches intersect. The objective is to evaluate the model's robustness in handling and displaying complex logical flows, ensuring it can accurately interpret and coordinate between multiple requirements with varying levels of dependency. The dataset mimics scenarios where multiple control and monitoring systems interact, highlighting the model's ability to manage and visualize such elaborate configurations."
+    },
+    "complexity_level": "High",
+    "requirements": [
+      {
+        "id": "REQ_001",
+        "given": "ACT5 signal is detected.",
+        "when": "ACT5 trigger is activated.",
+        "then": "The system activates the emergency brake.",
+        "requires": "ACT5",
+        "provides": "Emergency Brake Activation",
+        "embeds": "Direct Trigger",
+        "derived_from": "REQ_002",
+        "description": "ID: REQ_001 - GIVEN: ACT5 signal is detected. WHEN: ACT5 trigger is activated. THEN: The system activates the emergency brake. REQUIRES: ACT5. PROVIDES: Emergency Brake Activation. EMBEDS: Direct Trigger. DERIVED FROM: REQ_002. BASIC DESCRIPTION: Triggers emergency brake upon ACT5 trigger.",
+        "natural_language_requirement": "When ACT5 is triggered, the system immediately activates the emergency brake."
+      },
+      {
+        "id": "REQ_002",
+        "given": "Speed and tilt sensor data are monitored for specific thresholds. Speed is greater than 113 kilometers per hour and tilt sensor is greater than 7 degrees.",
+        "when": "Thresholds are met for either speed or tilt.",
+        "then": "The system activates an LED warning and prepares to trigger the emergency brake (ACT5).",
+        "requires": "Speed Sensor, Tilt Sensor",
+        "provides": "LED Warning, ACT5 Trigger",
+        "embeds": "",
+        "derived_from": "",
+        "description": "ID: REQ_002 - GIVEN: Speed and tilt sensor data are monitored for specific thresholds. Speed is greater than 113 kilometers per hour and tilt sensor is greater than 7 degrees. WHEN: Thresholds are met for either speed or tilt. THEN: The system activates an LED warning and prepares to trigger the emergency brake (ACT5). REQUIRES: Speed Sensor, Tilt Sensor. PROVIDES: LED Warning, ACT5 Trigger. EMBEDS: . DERIVED FROM: . BASIC DESCRIPTION: Monitors speed and tilt sensor data to trigger a warning system and brake activation.",
+        "natural_language_requirement": "The system monitors speed and tilt data, and if either exceeds a threshold, it activates a warning light and prepares to trigger the emergency brake. Speed is greater than 113 kilometers per hour and tilt sensor is greater than 7 degrees."
+      },
+      {
+        "id": "REQ_003",
+        "given": "CTRL1 or CTRL2 data is received.",
+        "when": "Either CTRL1 or CTRL2 data is present.",
+        "then": "The system activates LED1 and triggers ACT1.",
+        "requires": "CTRL1, CTRL2",
+        "provides": "LED1, ACT1",
+        "embeds": "",
+        "derived_from": "REQ_101A",
+        "description": "ID: REQ_003 - GIVEN: CTRL1 or CTRL2 data is received. WHEN: Either CTRL1 or CTRL2 data is present. THEN: The system activates LED1 and triggers ACT1. REQUIRES: CTRL1, CTRL2. PROVIDES: LED1, ACT1. EMBEDS: . DERIVED FROM: REQ_101A. BASIC DESCRIPTION: Activates LED1 when either CTRL1 or CTRL2 data is received.",
+        "natural_language_requirement": "When either CTRL1 or CTRL2 signals are detected, the system turns on LED1 and activates ACT1."
+      },
+      {
+        "id": "REQ_004",
+        "given": "CTRL3, CTRL4, and CTRL5 data are all present.",
+        "when": "All three control data inputs are available.",
+        "then": "The system activates LED2 and triggers ACT2.",
+        "requires": "CTRL3, CTRL4, CTRL5",
+        "provides": "LED2, ACT2",
+        "embeds": "",
+        "derived_from": "REQ_101B",
+        "description": "ID: REQ_004 - GIVEN: CTRL3, CTRL4, and CTRL5 data are all present. WHEN: All three control data inputs are available. THEN: The system activates LED2 and triggers ACT2. REQUIRES: CTRL3, CTRL4, CTRL5. PROVIDES: LED2, ACT2. EMBEDS: . DERIVED FROM: REQ_101B. BASIC DESCRIPTION: Activates LED2 when CTRL3, CTRL4, and CTRL5 data are present.",
+        "natural_language_requirement": "The system activates LED2 and ACT2 when all three inputs (CTRL3, CTRL4, and CTRL5) are detected."
+      },
+      {
+        "id": "REQ_005",
+        "given": "ACT1 and ACT2 statuses are combined.",
+        "when": "Both actions (ACT1 and ACT2) have been triggered.",
+        "then": "The system initiates emergency brake activation.",
+        "requires": "ACT1, ACT2",
+        "provides": "Emergency Brake Activation",
+        "embeds": "",
+        "derived_from": "REQ_102",
+        "description": "ID: REQ_005 - GIVEN: ACT1 and ACT2 statuses are combined. WHEN: Both actions (ACT1 and ACT2) have been triggered. THEN: The system initiates emergency brake activation. REQUIRES: ACT1, ACT2. PROVIDES: Emergency Brake Activation. EMBEDS: . DERIVED FROM: REQ_102. BASIC DESCRIPTION: Activates emergency brake based on combined ACT1 and ACT2 statuses.",
+        "natural_language_requirement": "The system activates the emergency brake when both ACT1 and ACT2 have been triggered."
+      }
+    ],
+    "plc_xml_code_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plc_xml_code.xml",
+    "plc_xml_code_relative_path": "datasets/dataset_C/plc_xml_code.xml",
+    "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
+    "plantuml_diagram_relative_path": "datasets/dataset_C/plantuml_diagram.puml"
+  }
+}
+

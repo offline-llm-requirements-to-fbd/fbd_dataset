@@ -1,0 +1,99 @@
+{
+  "dataset": {
+    "id": "Dataset_C",
+    "dataset_description": {
+      "simplified": "A dataset where all requirements are isolated, forming distinct 'islands' with no dependencies.",
+      "detailed": "This dataset explores the scenario where requirements stand alone as independent blocks, without any dependencies or connections to other requirements. It tests the model's ability to accurately interpret and visualize disconnected requirements, ensuring it does not create artificial connections where none exist. The dataset assesses whether the model can maintain the independence of each requirement, even when they appear superficially similar (e.g., related to temperature or humidity). Two requirements include additional information about embedded subsystems involved, demonstrating the dataset's capability to handle isolated but internally detailed requirements."
+    },
+    "complexity_level": "Intermediate",
+    "requirements": [
+      {
+        "id": "REQ_001",
+        "given": "The internal temperature sensor provides data for safety compliance checks.",
+        "when": "The system receives internal temperature data.",
+        "then": "The system shall monitor and validate the internal temperature for safety compliance.",
+        "requires": "Internal Temperature Sensor",
+        "provides": "Safety Compliance Data",
+        "embeds": "",
+        "derived_from": "",
+        "description": "ID: REQ_001 - The internal temperature sensor provides data for safety compliance checks. GIVEN: The internal temperature sensor provides data for safety compliance checks. WHEN: The system receives internal temperature data. THEN: The system shall monitor and validate the internal temperature for safety compliance. REQUIRES: Internal Temperature Sensor. PROVIDES: Safety Compliance Data. EMBEDS: None.",
+        "natural_language_requirement": "The system shall monitor internal temperature data for safety compliance. The internal temperature sensor provides data, and upon receiving it, the system validates it for compliance."
+      },
+      {
+        "id": "REQ_002",
+        "given": "The CPU temperature sensor exceeds 80°C.",
+        "when": "The CPU temperature reaches the threshold.",
+        "then": "The system shall activate fan cooling.",
+        "requires": "CPU Temperature Sensor",
+        "provides": "Fan Cooling Activation",
+        "embeds": "",
+        "derived_from": "",
+        "description": "ID: REQ_002 - Activates fan cooling when CPU temperature exceeds 80°C. GIVEN: The CPU temperature sensor exceeds 80°C. WHEN: The CPU temperature reaches the threshold. THEN: The system activates fan cooling. REQUIRES: CPU Temperature Sensor. PROVIDES: Fan Cooling Activation. EMBEDS: None.",
+        "natural_language_requirement": "The system shall activate fan cooling if the CPU temperature exceeds 80°C. This action is independent of other temperature-related requirements."
+      },
+      {
+        "id": "REQ_003",
+        "given": "The cabin humidity sensor reads data for climate control.",
+        "when": "The system collects humidity sensor data from the cabin.",
+        "then": "The system shall process climate control based on the humidity data.",
+        "requires": "Cabin Humidity Sensor",
+        "provides": "Climate Control Adjustment",
+        "embeds": "Climate Control Subsystem",
+        "derived_from": "",
+        "description": "ID: REQ_003 - Reads humidity sensor data for climate control. GIVEN: The cabin humidity sensor reads data for climate control. WHEN: The system collects humidity sensor data from the cabin. THEN: The system processes climate control based on the humidity data. REQUIRES: Cabin Humidity Sensor. PROVIDES: Climate Control Adjustment. EMBEDS: Climate Control Subsystem.",
+        "natural_language_requirement": "The system shall read humidity sensor data from the cabin for climate control. The system collects and processes the data through the Climate Control Subsystem, independently of any other monitoring activities."
+      },
+      {
+        "id": "REQ_004",
+        "given": "The humidity level falls below 20%.",
+        "when": "The system detects a low humidity level.",
+        "then": "The system shall activate the warning lights (LEDS-1).",
+        "requires": "Humidity Sensor",
+        "provides": "Warning Lights Activation (LEDS-1)",
+        "embeds": "",
+        "derived_from": "",
+        "description": "ID: REQ_004 - Activates warning lights when humidity falls below 20%. GIVEN: The humidity level falls below 20%. WHEN: The system detects a low humidity level. THEN: The system activates warning lights (LEDS-1). REQUIRES: Humidity Sensor. PROVIDES: Warning Lights Activation (LEDS-1). EMBEDS: None.",
+        "natural_language_requirement": "The system shall activate warning lights if the humidity level falls below 20%. This is unrelated to the climate control system."
+      },
+      {
+        "id": "REQ_005",
+        "given": "The air quality sensor detects an AQI index above 300.",
+        "when": "The system monitors air quality data.",
+        "then": "The system shall trigger a hazardous air quality warning.",
+        "requires": "Air Quality Sensor",
+        "provides": "Hazardous Air Quality Warning",
+        "embeds": "Alert Notification System",
+        "derived_from": "",
+        "description": "ID: REQ_005 - Monitors air quality for high AQI levels. GIVEN: The air quality sensor detects an AQI index above 300. WHEN: The system monitors air quality data. THEN: The system triggers a hazardous air quality warning. REQUIRES: Air Quality Sensor. PROVIDES: Hazardous Air Quality Warning. EMBEDS: Alert Notification System.",
+        "natural_language_requirement": "The system shall monitor air quality and trigger a warning if the AQI index exceeds 300. This action uses the Alert Notification System and is independent of climate control or temperature monitoring."
+      },
+      {
+        "id": "REQ_006",
+        "given": "The external temperature sensor detects an anomaly.",
+        "when": "The system identifies an abnormal temperature reading from the external sensor.",
+        "then": "The system shall activate the alert lights (LEDS-2).",
+        "requires": "External Temperature Sensor",
+        "provides": "Alert Lights Activation (LEDS-2)",
+        "embeds": "",
+        "derived_from": "",
+        "description": "ID: REQ_006 - Activates alert lights when an anomaly is detected by the external temperature sensor. GIVEN: The external temperature sensor detects an anomaly. WHEN: The system identifies an abnormal temperature reading from the external sensor. THEN: The system activates alert lights (LEDS-2). REQUIRES: External Temperature Sensor. PROVIDES: Alert Lights Activation (LEDS-2). EMBEDS: None.",
+        "natural_language_requirement": "If an anomaly is detected by the external temperature sensor, the system shall activate alert lights (LEDS-2). This requirement stands alone without dependencies."
+      }
+    ],
+    "plc_xml_code_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plc_xml_code.xml",
+    "plc_xml_code_relative_path": "datasets/dataset_C/plc_xml_code.xml",
+    "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
+    "plantuml_diagram_relative_path": "datasets/dataset_C/plantuml_diagram.puml",
+    "metadata": {
+      "creator": "Nicolas Restrepo Torres",
+      "date_created": "2024-10-12",
+      "version": "1.0",
+      "license": "CC-BY-4.0",
+      "source": "Inspired by general railway industry requirements and PLC standards",
+      "provenance": "Dataset created to simulate FBD requirements for testing and validation of NLP models.",
+      "validation_status": "Pending review",
+      "validation_expert": "Åbo Akademi, domain experts (TBD)"
+    }
+  }
+}
+
