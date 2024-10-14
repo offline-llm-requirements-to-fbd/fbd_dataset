@@ -76,7 +76,7 @@ Here is a JSON snippet showing how the structure of the datasets looks like:
 {
   "datasets": [
     {
-      "id": "Dataset_A", // Dataset identifier
+      "id": "Dataset_A",
       "description": {
         "simplified": "A basic dataset with simple, sequential requirements connected to a single outcome.",
         "detailed": "This dataset contains requirements where each component is connected to something else, testing the model's basic ability to interpret and connect sequential requirements logically. The requirements build on one another sequentially, ensuring clarity and straightforwardness."
@@ -143,7 +143,9 @@ Here is a JSON snippet showing how the structure of the datasets looks like:
 }
 ```
 
-## Contact
+- ## Contact
 
-For any inquiries or further information, please contact:
-- **Nicolas Restrepo Torres** 
+  For any inquiries or further information, please reach out to:
+
+  - **Nicolas Restrepo Torres**  
+    Email: [Nicolas.RestrepoTorres@abo.fi](Nicolas.RestrepoTorres@abo.fi)
