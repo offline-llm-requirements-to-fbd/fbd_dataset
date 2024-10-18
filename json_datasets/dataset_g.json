@@ -1,5 +1,4 @@
 {
-  "dataset": {
     "id": "Dataset_G",
     "dataset_description": {
       "simplified": "A dataset with intentionally ambiguous requirements focused on well control systems.",
@@ -37,6 +36,5 @@
     "plc_xml_code_relative_path": "datasets/dataset_A/plc_xml_code.xml",
     "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
     "plantuml_diagram_relative_path": "datasets/dataset_A/plantuml_diagram.puml"
-  }
 }
 

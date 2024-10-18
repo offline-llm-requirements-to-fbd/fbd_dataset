@@ -1,5 +1,4 @@
 {
-  "dataset": {
     "id": "Dataset_F",
     "dataset_description": {
       "simplified": "A basic dataset featuring a single temperature-based feedback loop for fan cooling control.",
@@ -37,6 +36,5 @@
     "plc_xml_code_relative_path": "datasets/dataset_A/plc_xml_code.xml",
     "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
     "plantuml_diagram_relative_path": "datasets/dataset_A/plantuml_diagram.puml"
-    }
 }
 

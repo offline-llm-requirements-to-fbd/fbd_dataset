@@ -1,5 +1,4 @@
 {
-  "dataset": {
     "id": "Dataset_D",
     "dataset_description": {
       "simplified": "A complex dataset with multiple pathways, dependencies, and convergence points among requirements.",
@@ -72,6 +71,6 @@
     "plc_xml_code_relative_path": "datasets/dataset_C/plc_xml_code.xml",
     "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
     "plantuml_diagram_relative_path": "datasets/dataset_C/plantuml_diagram.puml"
-  }
+
 }
 

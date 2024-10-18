@@ -1,5 +1,4 @@
 {
-  "dataset": {
     "id": "Dataset_B",
     "dataset_description": {
       "simplified": "A dataset with multiple nodes and branching pathways that converge into three different sinks.",
@@ -107,17 +106,6 @@
     "plc_xml_code_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plc_xml_code.xml",
     "plc_xml_code_relative_path": "datasets/dataset_B/plc_xml_code.xml",
     "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
-    "plantuml_diagram_relative_path": "datasets/dataset_B/plantuml_diagram.puml",
-    "metadata": {
-      "creator": "Nicolas Restrepo Torres",
-      "date_created": "2024-10-12",
-      "version": "1.0",
-      "license": "CC-BY-4.0",
-      "source": "Inspired by general railway industry requirements and PLC standards",
-      "provenance": "Dataset created to simulate FBD requirements for testing and validation of NLP models.",
-      "validation_status": "Pending review",
-      "validation_expert": "Åbo Akademi, domain experts (TBD)"
-    }
-  }
+    "plantuml_diagram_relative_path": "datasets/dataset_B/plantuml_diagram.puml"
 }
 

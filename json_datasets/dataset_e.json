@@ -1,5 +1,4 @@
 {
-  "dataset": {
     "id": "Dataset_E",
     "dataset_description": {
       "simplified": "A dataset with loops, circular dependencies, and logical gates between requirements, controlling both activation and deactivation steps.",
@@ -84,6 +83,5 @@
     "plc_xml_code_relative_path": "datasets/dataset_A/plc_xml_code.xml",
     "plantuml_diagram_url": "https://github.com/NicolasRestrepoTorres/fbd_dataset/plantuml_diagram.puml",
     "plantuml_diagram_relative_path": "datasets/dataset_A/plantuml_diagram.puml"
-  }
 }
 
