@@ -1,6 +1,44 @@
 # Requirements Dataset Collection for Function Block Diagrams (FBDs)
 
-This repository contains multiple datasets designed to simulate requirements, aimed at testing and validating Natural Language Processing (NLP) models in the context of automatic generation of Function Block Diagrams. Each dataset introduces different complexity levels, ranging from simple sequential requirements to highly complex scenarios involving feedback loops and ambiguous conditions. The datasets are structured to test the model's ability to interpret, merge, and handle redundant or ambiguous requirements in a variety of configurations.
+This repository contains multiple datasets designed to simulate requirements to Function Block Diagrams mappings, aimed at testing and validating Natural Language Processing (NLP) models in the context of automatic generation of Function Block Diagrams (FBDs). Each dataset introduces different complexity levels, ranging from simple sequential requirements to highly complex scenarios involving feedback loops and ambiguous conditions. The datasets are structured to test the model's ability to interpret, merge, and handle redundant or ambiguous requirements in a variety of configurations.
+
+## Dataset Structure
+
+Each dataset is composed of requirements written in natural language and in a typical critical software industry template, with variations in complexity. The objective is to evaluate how well NLP models can interpret and transform these requirements into FBDs, particularly in handling ambiguities, conflicting conditions, and feedback loops.
+
+## XML Formats for IEC 61131-3
+
+In this dataset, the requirements are converted into XML formats that comply with the **PLCOpen XML** standards, as specified in the **IEC 61131-3** standard for programmable logic controllers (PLCs). The PLCOpen XML schema is used to represent the FBD structures, ensuring that the generated diagrams align with industry standards. 
+
+Key attributes in the XML structure include:
+
+- `id`: A unique identifier for each block within the diagram.
+- `type`: Defines the type of block (e.g., function, action).
+- `label`: Descriptive label for the block, typically specifying its role (e.g., "CTRL1 or CTRL2 Detection").
+- `description`: A detailed description of the block’s functionality.
+- `gate_type`: The type of logical gate used within the block (e.g., AND, OR, THRESHOLD).
+- `inputs`: Contains information about the input signals and their types.
+- `outputs`: Contains information about the output signals and their types.
+- `content`: A short summary explaining the core operation of the block.
+
+This structure supports consistent and scalable representations of FBDs, making the datasets suitable for both academic and industrial applications in automation systems.
+
+### Example of PLCOpen XML Blocks
+
+The XML files for each dataset can be found in the `plc_open_xmls` directory, showcasing various control blocks that define FBDs, such as:
+
+- Detection of signals (e.g., CTRL1 and CTRL2) to trigger actions like activating LEDs or engaging cooling mechanisms.
+- Monitoring of multiple sensor inputs (e.g., CTRL3, CTRL4, and CTRL5) to execute actions based on threshold conditions.
+- Activation of emergency systems (e.g., BRK1) based on the logical conditions of previously triggered actions.
+
+Each block in the XML files contains well-defined attributes and follows the **PLCOpen XML** format, ensuring compatibility with the IEC 61131-3 standard.
+
+### Reference:
+The XML structure is based on the following technical documentation:
+
+> PLCopen Technical Committee 6, XML Formats for IEC 61131-3, Version 2.01. Available from: [PLCOpen Technical Documentation](https://www.plcopen.org/system/files/downloads/tc6_xml_v201_technical_doc.pdf).
+
+This documentation serves as the primary reference for the XML schema used to define and structure the FBDs in this project. It is aligned with the IEC 61131-3 standard, providing a reliable foundation for representing control logic in XML format.
 
 ## How to Use
 
